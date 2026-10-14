@@ -1,0 +1,621 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #16a34a;
+    --green-dark: #15803d;
+    --green-light: #dcfce7;
+
+    --red: #dc2626;
+    --red-light: #fee2e2;
+
+    --yellow: #d97706;
+    --yellow-light: #fef3c7;
+
+    --text: #17251b;
+    --muted: #6b7280;
+
+    --card: #ffffff;
+    --background: #edf7ef;
+
+    --border: #e5e7eb;
+
+    --shadow:
+        0 14px 35px rgba(23, 37, 27, 0.08);
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(34, 197, 94, 0.13),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f4fbf5 0%,
+            var(--background) 100%
+        );
+}
+
+
+button {
+    font: inherit;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: min(1100px, 92%);
+
+    margin: 0 auto;
+
+    padding:
+        42px
+        0
+        30px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+
+.logo {
+
+    width: 66px;
+    height: 66px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 20px;
+
+    background: white;
+
+    box-shadow: var(--shadow);
+
+    font-size: 34px;
+}
+
+
+.header h1 {
+
+    font-size: clamp(
+        28px,
+        4vw,
+        38px
+    );
+
+    letter-spacing: -1px;
+}
+
+
+.header p {
+
+    margin-top: 5px;
+
+    color: var(--muted);
+}
+
+
+/* =========================
+   CONEXÃO
+========================= */
+
+.connection-card {
+
+    min-height: 112px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 24px;
+
+    border-radius: 22px;
+
+    margin-bottom: 22px;
+
+    background: var(--card);
+
+    border: 1px solid
+        rgba(229, 231, 235, 0.8);
+
+    box-shadow: var(--shadow);
+}
+
+
+.connection-info {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+}
+
+
+.connection-info h2 {
+
+    font-size: 20px;
+}
+
+
+.connection-info p {
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* INDICADOR */
+
+.status-indicator {
+
+    width: 16px;
+    height: 16px;
+
+    flex: 0 0 16px;
+
+    border-radius: 50%;
+}
+
+
+.status-indicator.disconnected {
+
+    background: var(--red);
+
+    box-shadow:
+        0 0 0 6px
+        var(--red-light);
+}
+
+
+.status-indicator.connected {
+
+    background: var(--green);
+
+    box-shadow:
+        0 0 0 6px
+        var(--green-light);
+}
+
+
+.status-indicator.connecting {
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 0 0 6px
+        var(--yellow-light);
+}
+
+
+/* BOTÃO */
+
+.connect-button {
+
+    min-width: 205px;
+
+    padding: 14px 20px;
+
+    border: 0;
+
+    border-radius: 13px;
+
+    background: var(--green);
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform .18s,
+        background .18s;
+}
+
+
+.connect-button:hover {
+
+    background: var(--green-dark);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.connect-button.disconnect {
+
+    background: var(--red);
+}
+
+
+.connect-button.disconnect:hover {
+
+    background: #b91c1c;
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.sensor-card {
+
+    min-height: 165px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 24px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    border: 1px solid
+        rgba(229, 231, 235, .8);
+
+    box-shadow: var(--shadow);
+
+    transition: transform .18s;
+}
+
+
+.sensor-card:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+.sensor-icon {
+
+    width: 62px;
+    height: 62px;
+
+    flex: 0 0 62px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 17px;
+
+    background: #f0fdf4;
+
+    font-size: 30px;
+}
+
+
+.sensor-content span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+
+.sensor-content strong {
+
+    display: block;
+
+    font-size: 34px;
+
+    line-height: 1.05;
+}
+
+
+.sensor-content small {
+
+    display: block;
+
+    margin-top: 9px;
+
+    color: var(--muted);
+}
+
+
+#pump-status.on {
+
+    color: var(--green);
+}
+
+
+#pump-status.off {
+
+    color: var(--red);
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.info-card {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    margin-top: 18px;
+
+    background: white;
+
+    box-shadow: var(--shadow);
+}
+
+
+.info-card > div {
+
+    padding: 20px;
+
+    background: white;
+}
+
+
+.info-label {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 6px;
+}
+
+
+.info-card strong {
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   LOG
+========================= */
+
+.log-card {
+
+    margin-top: 18px;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background: white;
+
+    box-shadow: var(--shadow);
+}
+
+
+.section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 14px;
+}
+
+
+.eyebrow {
+
+    display: block;
+
+    color: var(--green-dark);
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.4px;
+
+    margin-bottom: 5px;
+}
+
+
+.section-title h2 {
+
+    font-size: 20px;
+}
+
+
+.secondary-button {
+
+    padding: 9px 13px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background: #f3f4f6;
+
+    color: #374151;
+
+    cursor: pointer;
+}
+
+
+.secondary-button:hover {
+
+    background: #e5e7eb;
+}
+
+
+.serial-log {
+
+    min-height: 90px;
+
+    max-height: 190px;
+
+    overflow-y: auto;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: #101713;
+
+    color: #d1fae5;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+}
+
+
+.log-line {
+
+    padding: 3px 0;
+}
+
+
+.empty-log {
+
+    color: #6b7280;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-top: 28px;
+}
+
+
+.browser-note {
+
+    margin-top: 5px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 720px) {
+
+    .container {
+
+        padding-top: 25px;
+    }
+
+
+    .connection-card {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .connect-button {
+
+        width: 100%;
+    }
+
+
+    .dashboard {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .info-card {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .header h1 {
+
+        font-size: 28px;
+    }
+}

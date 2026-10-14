@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Estufa Inteligente</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header class="header">
+            <div class="logo">🌱</div>
+
+            <div>
+                <h1>Estufa Inteligente</h1>
+                <p>Monitoramento em tempo real via USB</p>
+            </div>
+        </header>
+
+
+        <!-- CONEXÃO -->
+
+        <section class="connection-card">
+
+            <div class="connection-info">
+
+                <div
+                    id="status-indicator"
+                    class="status-indicator disconnected">
+                </div>
+
+                <div>
+                    <h2 id="status-title">
+                        Arduino desconectado
+                    </h2>
+
+                    <p id="status-text">
+                        Conecte o Arduino pela USB para começar.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <button
+                id="connect-button"
+                class="connect-button"
+                type="button">
+
+                🔌 Conectar Arduino
+
+            </button>
+
+        </section>
+
+
+        <!-- SENSORES -->
+
+        <section class="dashboard">
+
+            <!-- UMIDADE -->
+
+            <article class="sensor-card">
+
+                <div class="sensor-icon">
+                    🌱
+                </div>
+
+                <div class="sensor-content">
+
+                    <span>
+                        Umidade do solo
+                    </span>
+
+                    <strong id="soil-humidity">
+                        -- %
+                    </strong>
+
+                    <small id="soil-status">
+                        Aguardando dados
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <!-- TEMPERATURA -->
+
+            <article class="sensor-card">
+
+                <div class="sensor-icon">
+                    🌡️
+                </div>
+
+                <div class="sensor-content">
+
+                    <span>
+                        Temperatura
+                    </span>
+
+                    <strong id="temperature">
+                        -- °C
+                    </strong>
+
+                    <small id="temperature-status">
+                        Aguardando dados
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <!-- BOMBA -->
+
+            <article class="sensor-card">
+
+                <div class="sensor-icon">
+                    💧
+                </div>
+
+                <div class="sensor-content">
+
+                    <span>
+                        Bomba de água
+                    </span>
+
+                    <strong id="pump-status">
+                        --
+                    </strong>
+
+                    <small id="pump-detail">
+                        Aguardando dados
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <!-- COMUNICAÇÃO -->
+
+            <article class="sensor-card">
+
+                <div class="sensor-icon">
+                    📡
+                </div>
+
+                <div class="sensor-content">
+
+                    <span>
+                        Comunicação
+                    </span>
+
+                    <strong id="communication-status">
+                        USB
+                    </strong>
+
+                    <small id="last-update">
+                        Aguardando atualização
+                    </small>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- INFORMAÇÕES -->
+
+        <section class="info-card">
+
+            <div>
+
+                <span class="info-label">
+                    Frequência de leitura
+                </span>
+
+                <strong>
+                    15 segundos
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span class="info-label">
+                    Fonte dos dados
+                </span>
+
+                <strong>
+                    Arduino via USB
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span class="info-label">
+                    Controle da estufa
+                </span>
+
+                <strong>
+                    Arduino
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOG -->
+
+        <section class="log-card">
+
+            <div class="section-title">
+
+                <div>
+
+                    <span class="eyebrow">
+                        MONITORAMENTO
+                    </span>
+
+                    <h2>
+                        Comunicação serial
+                    </h2>
+
+                </div>
+
+                <button
+                    id="clear-log"
+                    class="secondary-button"
+                    type="button">
+
+                    Limpar
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="serial-log"
+                class="serial-log">
+
+                <div class="empty-log">
+                    Nenhum dado recebido ainda.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                🌱 Estufa Inteligente • Painel de monitoramento
+            </p>
+
+            <p class="browser-note">
+                Use Google Chrome ou Microsoft Edge para comunicação USB.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
